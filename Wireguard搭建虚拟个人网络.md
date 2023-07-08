@@ -60,6 +60,21 @@ PublicKey = $(cat client1.key.pub) #获取客户端公钥
 AllowedIPs = 10.0.0.2/32 #指定客户端IP，网段为/24，固定IP为/32" > wg0.conf
 ```
 
+### 增加客户端client2
+```
+#生成私钥
+wg genkey > client2.key
+
+#通过私钥生成公钥
+wg pubkey < client2.key > client2.key.pub
+
+#将peer公钥加入wg0.conf配置
+echo "
+[Peer]
+PublicKey =  $(cat client2.key.pub) #获取client2公钥
+AllowedIPs = 10.0.0.3/32 #指定给客户端client2的IP" >> wg0.conf
+```
+
 ### (可选)设置服务器开机自启动Wireguard
 ```
 systemctl enable wg-quick@wg0
@@ -88,21 +103,6 @@ Endpoint = 公网IP:50820 #服务器公网IP+端口
 PersistentKeepalive = 25 #连接保活间隔，单位为秒" > client1.conf
 ```
 
-### 增加客户端client2
-```
-#生成私钥
-wg genkey > client2.key
-
-#通过私钥生成公钥
-wg pubkey < client2.key > client2.key.pub
-
-#将peer公钥加入wg0.conf配置
-echo "
-[Peer]
-PublicKey =  $(cat client2.key.pub) #获取client2公钥
-AllowedIPs = 10.0.0.3/32 #指定给客户端client2的IP" >> wg0.conf
-
-```
 
 
 ## Docker安装Wireguard
