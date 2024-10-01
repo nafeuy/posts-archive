@@ -57,7 +57,7 @@ PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -D FORWARD -o wg0 -j A
 
 [Peer]
 PublicKey = $(cat client1.key.pub) #获取客户端公钥
-AllowedIPs = 10.0.0.2/32 #指定客户端IP，网段为/24，固定IP为/32" > wg0.conf
+AllowedIPs = 10.0.0.2/32 #指定客户端IP" > wg0.conf
 ```
 
 ### 增加客户端client2
