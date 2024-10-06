@@ -11,9 +11,9 @@ sudo -i
 apt install wireguard resolvconf -y
 
 #开启IP转发
-echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.conf
-echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p /etc/sysctl.conf
+echo 'net.ipv4.ip_forward = 1' | tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | tee -a /etc/sysctl.conf
+sysctl -p /etc/sysctl.conf
 ```
 
 ### 进入配置存储路径，调整目录权限
