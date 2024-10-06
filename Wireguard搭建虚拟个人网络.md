@@ -32,6 +32,9 @@ wg genkey > server.key
 
 #通过私钥生成公钥
 wg pubkey < server.key > server.key.pub
+
+# 你也可以一次性完成
+wg genkey | tee server.key | wg pubkey > server.key.pub
 ```
 
 ### 生成客户端(client1)秘钥
