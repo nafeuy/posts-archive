@@ -6,7 +6,7 @@
    - 按下 `Win + R` 键，输入 `regedit`，然后按回车键打开注册表编辑器
 
 2. **定位到指定路径**：
-   - 在注册表中，定位路径`HKEY_CURRENT_USER\SOFTWARE\CLASSES\CLSID`
+   - 在注册表中，定位路径`HKEY_CURRENT_USER\Software\Classes\CLSID`
 
 3. **创建新项**：
    - 在 `CLSID` 项上右键点击，选择“新建” -> “项”，命名为 `{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}`
